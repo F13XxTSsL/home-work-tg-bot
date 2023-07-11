@@ -14,7 +14,12 @@ const router = createRouter({
         { path: '/registration-member', component: RegistrationMember },
         { path: '/list-members', component: ListMembers },
     ],
-    history: createWebHistory()
+    history: createWebHistory(),
+    scrollBehavior(to, from) {
+        if (to.path === '/list-members' || '/registration-member') {
+            return { x: 0, y: 0 }
+        }
+    }
 })
 
 const app = createApp(App)
