@@ -44,18 +44,13 @@ const sendData = async () => {
     // statusSend.value.color = '#7CB342'
     // statusSend.value.text = 'Данные успешно отправлены'
 
-    setTimeout(() => {
       loader.value = false
       statusSendActive.value = false
       sessionStorage.removeItem('company')
       sessionStorage.removeItem('members')
 
       tg.sendData("Invitees was submitted");
-      tg.postEvent('web_app_close');
       tg.close();
-
-
-    }, 2500)
 
   }, 3000)
 

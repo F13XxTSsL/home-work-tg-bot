@@ -6,6 +6,12 @@ import Index from "./views/Index.vue";
 import RegistrationMember from "./views/RegistrationMember.vue";
 import ListMembers from "./views/ListMembers.vue";
 
+export const tg = window.Telegram.WebApp;
+
+window.Telegram.WebApp.expand();
+window.Telegram.WebApp.colorScheme('light')
+
+
 
 
 const router = createRouter({
@@ -22,9 +28,7 @@ const router = createRouter({
     }
 })
 
-export const tg = window.Telegram.WebApp;
 
-tg.expand();
 
 
 const app = createApp(App)
