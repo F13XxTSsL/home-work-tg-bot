@@ -22,6 +22,11 @@ const router = createRouter({
     }
 })
 
+export const tg = window.Telegram.WebApp;
+
+tg.expand();
+
+
 const app = createApp(App)
 app.use(router)
 app.mount('#app')

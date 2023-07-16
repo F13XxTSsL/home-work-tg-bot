@@ -2,6 +2,7 @@
 
 import {computed, ref} from "vue";
 import {useRouter} from "vue-router";
+import {tg} from "../main.js";
 
 const router = useRouter()
 const company_name = computed(() => JSON.parse(sessionStorage.getItem('company')))
@@ -31,6 +32,7 @@ const sendData = async () => {
       statusSendActive.value = true
       loader.value = false
 
+
       setTimeout(() => {
         statusSendActive.value = false
 
@@ -39,15 +41,20 @@ const sendData = async () => {
       return false
     }
 
-    statusSend.value.color = '#7CB342'
-    statusSend.value.text = 'Данные успешно отправлены'
+    // statusSend.value.color = '#7CB342'
+    // statusSend.value.text = 'Данные успешно отправлены'
     loader.value = false
 
     setTimeout(() => {
       statusSendActive.value = false
-      router.push('/')
       sessionStorage.removeItem('company')
       sessionStorage.removeItem('members')
+
+      setTimeout(() => {
+        tg.close();
+        tg.postEvent('web_app_close');
+
+      }, 3500)
     }, 2500)
 
   }, 3000)
