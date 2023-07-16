@@ -1,11 +1,6 @@
 <script setup>
 
 import {tg} from "../main.js";
-import {onMounted} from "vue";
-
-onMounted(() => {
-  tg.WebApp.onEvent('popupClosed', (e) => { e.preventDefault() })
-})
 
 
 
