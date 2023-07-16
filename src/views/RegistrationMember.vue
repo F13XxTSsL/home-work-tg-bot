@@ -9,6 +9,7 @@ import {tg} from "../main.js";
 
 const router = useRouter()
 const refForm = ref(null)
+const buttonNext = ref(null)
 const dataForm = reactive({
   company_name: '',
   members: []
@@ -48,6 +49,13 @@ const addMember = () => {
         last_name: '',
         phone: ''
       })
+
+      setTimeout(() => {
+        buttonNext.value.scrollIntoView({
+          block: 'start', // к ближайшей границе экрана
+          behavior: 'smooth', // и плавно
+        });
+      })
     }
   })
 
@@ -76,7 +84,7 @@ const goToCheckList = () => {
   <div class="container">
     <h1>Регистрация участников</h1>
     <p class="text">Введите название компании для регистрации всех участников. После заполнения всех приглашенных, нажмите кнопку «Далее».</p>
-    <Form v-slot="{ errors }" ref="refForm">
+    <Form v-slot="{ errors }" ref="refForm" :class="{'mb-40': dataForm.members.length > 1}">
       <div class="form-item">
         <div class="form-item__title">Укажите вашу компанию</div>
         <Field as="input" v-model="dataForm.company_name" class="input" name="company_name" type="text"
@@ -146,7 +154,7 @@ const goToCheckList = () => {
                 :class="{'button__light-green': dataForm.company_name }">Добавить участника
         </button>
         <transition name="fade" mode="out-in">
-          <button v-show="dataForm.members.length > 0" type="button" class="button button__green" @click="goToCheckList">Далее
+          <button ref="buttonNext" v-show="dataForm.members.length > 0" type="button" class="button button__green" @click="goToCheckList">Далее
           </button>
         </transition>
       </div>
@@ -155,6 +163,10 @@ const goToCheckList = () => {
 </template>
 
 <style scoped>
+
+form.mb-40 {
+  margin-bottom: 80px;
+}
 .text {
   margin-bottom: 32px;
 }
