@@ -1,6 +1,12 @@
 <script setup>
 
 import {tg} from "../main.js";
+import {onMounted} from "vue";
+
+onMounted(() => {
+  tg.WebApp.onEvent('popupClosed', (e) => { return false })
+})
+
 
 
 const clickNext = async () => {
