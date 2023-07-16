@@ -8,8 +8,8 @@ import ListMembers from "./views/ListMembers.vue";
 
 export const tg = window.Telegram.WebApp;
 
-window.Telegram.WebApp.expand();
-window.Telegram.WebApp.colorScheme('light')
+// window.Telegram.WebApp.expand();
+// window.Telegram.WebApp.colorScheme('light')
 
 
 

@@ -58,6 +58,13 @@ const addMember = () => {
 
 }
 
+const focusInput = (event) => {
+  event.target.scrollIntoView({
+    block: 'center', // к ближайшей границе экрана
+    behavior: 'smooth', // и плавно
+  });
+}
+
 const deleteMembers = (id) => {
   dataForm.members = dataForm.members.filter(item => item.id !== id)
 }
@@ -110,7 +117,7 @@ const goToCheckList = () => {
                   </div>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text"
+                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text" @focus="focusInput"
                          placeholder="Имя участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -121,7 +128,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text"
+                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text" @focus="focusInput"
                          placeholder="Фамилия участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -132,7 +139,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text"
+                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text" @focus="focusInput"
                          v-maska data-maska="+7 (###) ###-##-##"
                          placeholder="Телефон участника*"
                          :rules="validateEmpty"></Field>
