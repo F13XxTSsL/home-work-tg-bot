@@ -16,7 +16,7 @@ const dataForm = reactive({
 })
 
 onMounted(() => {
-  tg.WebApp.onEvent('popupClosed', (e) => { return false })
+  tg.WebApp.onEvent('popupClosed', (e) => { e.preventDefault() })
 })
 
 

@@ -50,8 +50,10 @@ const sendData = async () => {
       sessionStorage.removeItem('company')
       sessionStorage.removeItem('members')
 
-      tg.close();
+      tg.sendData("Invitees was submitted");
       tg.postEvent('web_app_close');
+      tg.close();
+
 
     }, 2500)
 
