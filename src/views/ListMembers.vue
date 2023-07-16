@@ -43,18 +43,16 @@ const sendData = async () => {
 
     // statusSend.value.color = '#7CB342'
     // statusSend.value.text = 'Данные успешно отправлены'
-    loader.value = false
 
     setTimeout(() => {
+      loader.value = false
       statusSendActive.value = false
       sessionStorage.removeItem('company')
       sessionStorage.removeItem('members')
 
-      setTimeout(() => {
-        tg.close();
-        tg.postEvent('web_app_close');
+      tg.close();
+      tg.postEvent('web_app_close');
 
-      }, 3500)
     }, 2500)
 
   }, 3000)
