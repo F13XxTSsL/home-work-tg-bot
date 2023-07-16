@@ -2,9 +2,10 @@
 import {Form, Field} from 'vee-validate'
 import {vMaska} from "maska"
 import Error from "../components/icons/Error.vue";
-import {reactive, ref, watch} from "vue";
+import {onMounted, reactive, ref, watch} from "vue";
 import Trash from "../components/icons/Trash.vue";
 import {useRouter} from "vue-router";
+import {tg} from "../main.js";
 
 const router = useRouter()
 const refForm = ref(null)
@@ -12,6 +13,12 @@ const dataForm = reactive({
   company_name: '',
   members: []
 })
+
+onMounted(() => {
+  tg.WebApp.onEvent('popupClosed', (e) => { return false })
+})
+
+
 
 
 
