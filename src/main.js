@@ -9,7 +9,7 @@ import ListMembers from "./views/ListMembers.vue";
 export const tg = window.Telegram.WebApp;
 
 tg.expand();
-// window.Telegram.WebApp.colorScheme('light')
+tg.colorScheme('light')
 
 
 
