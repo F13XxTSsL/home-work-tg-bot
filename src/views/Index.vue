@@ -50,7 +50,7 @@ const clickNext = async () => {
 
 }
 .texts {
-  padding: 37px 18px 147px 40px;
+  padding: 37px 18px 80px 40px;
 }
 .text {
   margin-bottom: 40px;
