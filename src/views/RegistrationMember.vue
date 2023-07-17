@@ -197,7 +197,7 @@ const goToCheckList = () => {
   margin-right: 8px;
 }
 .members-items {
-  height: 80vh;
+  height: 100%;
 }
 
 .members-items-item {
