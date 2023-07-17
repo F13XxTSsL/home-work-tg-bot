@@ -85,11 +85,11 @@ const goToCheckList = () => {
 </script>
 
 <template>
-  <div class="container" ref="memberItems">
+  <div class="container" >
     <h1>Регистрация участников</h1>
     <p class="text">Введите название компании для регистрации всех участников. После заполнения всех приглашенных, нажмите кнопку «Далее».</p>
     <Form v-slot="{ errors }" ref="refForm">
-      <div class="form-item">
+      <div class="form-item" ref="memberItems">
         <div class="form-item__title">Укажите вашу компанию</div>
         <Field as="input" v-model="dataForm.company_name" class="input" name="company_name" type="text"
                placeholder="Название компании*"
