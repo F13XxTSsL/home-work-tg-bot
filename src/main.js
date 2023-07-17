@@ -10,7 +10,7 @@ export const tg = window.Telegram.WebApp;
 
 tg.expand();
 const  setThemeClass = () => {
-    document.documentElement.className = Telegram.WebApp.colorScheme;
+    document.documentElement.className = 'light';
 }
 tg.onEvent('themeChanged', setThemeClass);
 setThemeClass();
