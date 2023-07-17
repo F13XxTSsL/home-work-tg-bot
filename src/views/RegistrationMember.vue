@@ -65,7 +65,7 @@ watch(dataForm, (item) => {
 })
 
 const focusInput = (event) => {
-  memberItems.value.style.marginBottom = 245 + 'px'
+  memberItems.value.style.marginBottom = 285 + 'px'
 
   setTimeout(() => {
     event.target.scrollIntoView({
