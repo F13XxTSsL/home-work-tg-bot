@@ -67,7 +67,7 @@ watch(dataForm, (item) => {
 })
 
 const focusInput = () => {
-  memberItems.value.style.marginBottom = 600 + 'px'
+  memberItems.value.style.marginBottom = 245 + 'px'
 }
 
 const blurInput = () => {
