@@ -10,11 +10,6 @@ export const tg = window.Telegram.WebApp;
 
 tg.expand();
 tg.backgroundColor = '#fff'
-console.log(tg.themeParams)
-// tg.ThemeParams["ThemeParams"] = {
-//     bg_color: '#fff',
-//     secondary_bg_color: '#fff',
-// }
 
 
 const router = createRouter({

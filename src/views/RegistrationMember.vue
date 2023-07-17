@@ -196,6 +196,9 @@ const goToCheckList = () => {
 .members-add-place__title svg {
   margin-right: 8px;
 }
+.members-items {
+  height: 80vh;
+}
 
 .members-items-item {
   margin-bottom: 24px;
