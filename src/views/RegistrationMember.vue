@@ -197,7 +197,7 @@ const goToCheckList = () => {
   margin-right: 8px;
 }
 .members-items {
-  max-height: 46vh;
+  max-height: 32vh;
   overflow: auto;
 }
 
