@@ -4,8 +4,6 @@ import {tg} from "../main.js";
 
 
 
-
-
 const clickNext = async () => {
   await fetch(`/api/v1/event_bot/subscriber/${tg.initDataUnsafe.user.id}`, {
     method: 'PATCH',

@@ -9,13 +9,8 @@ import ListMembers from "./views/ListMembers.vue";
 export const tg = window.Telegram.WebApp;
 
 tg.expand();
-const  setThemeClass = () => {
-    document.documentElement.className = 'light';
-}
-tg.onEvent('themeChanged', setThemeClass);
-setThemeClass();
-
-
+tg.ThemeParams.bg_color = '#fff'
+tg.ThemeParams.secondary_bg_color = '#fff'
 
 
 const router = createRouter({
