@@ -8,6 +8,7 @@ import {useRouter} from "vue-router";
 
 const router = useRouter()
 const refForm = ref(null)
+const memberItems = ref(null)
 const buttonNext = ref(null)
 const dataForm = reactive({
   company_name: '',
@@ -62,7 +63,16 @@ const deleteMembers = (id) => {
 watch(dataForm, (item) => {
   sessionStorage.setItem('company', JSON.stringify(item.company_name))
   sessionStorage.setItem('members', JSON.stringify(item.members))
+
 })
+
+const focusInput = () => {
+  memberItems.value.style.marginBottom = 245 + 'px'
+}
+
+const blurInput = () => {
+  memberItems.value.style.marginBottom = 0
+}
 
 const goToCheckList = () => {
   refForm.value?.validate().then(({valid}) => {
@@ -72,23 +82,10 @@ const goToCheckList = () => {
   })
 }
 
-const focusInput = () => {
-  const innerHeight = window.innerHeight;
-  document.body.style.height = innerHeight + 'px';
-  document.documentElement.style.height = innerHeight + 'px';
-
-  console.log(innerHeight)
-  window.scrollTo(0, 0);
-}
-const blurInput = () => {
-  document.body.style.height = '';
-  document.documentElement.style.height = '';
-}
-
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" ref="memberItems">
     <h1>Регистрация участников</h1>
     <p class="text">Введите название компании для регистрации всех участников. После заполнения всех приглашенных, нажмите кнопку «Далее».</p>
     <Form v-slot="{ errors }" ref="refForm">
@@ -111,7 +108,7 @@ const blurInput = () => {
               </div>
             </div>
 
-            <div class="members-items">
+            <div class="members-items" >
               <div class="members-items-item" v-for="(member, idx) in dataForm.members">
                 <div class="members-items-item-header">
                   Участник {{ idx + 1 }}
