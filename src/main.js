@@ -9,7 +9,8 @@ import ListMembers from "./views/ListMembers.vue";
 export const tg = window.Telegram.WebApp;
 
 tg.expand();
-console.log(tg)
+tg.backgroundColor = '#fff'
+console.log(tg.themeParams)
 // tg.ThemeParams["ThemeParams"] = {
 //     bg_color: '#fff',
 //     secondary_bg_color: '#fff',
