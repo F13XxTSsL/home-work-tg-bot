@@ -72,6 +72,19 @@ const goToCheckList = () => {
   })
 }
 
+const focusInput = () => {
+  const innerHeight = window.innerHeight;
+  document.body.style.height = innerHeight + 'px';
+  document.documentElement.style.height = innerHeight + 'px';
+
+  console.log(innerHeight)
+  window.scrollTo(0, 0);
+}
+const blurInput = () => {
+  document.body.style.height = '';
+  document.documentElement.style.height = '';
+}
+
 </script>
 
 <template>
@@ -107,7 +120,7 @@ const goToCheckList = () => {
                   </div>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text"
+                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text" @focus="focusInput" @blur="blurInput"
                          placeholder="Имя участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -118,7 +131,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text"
+                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text" @focus="focusInput" @blur="blurInput"
                          placeholder="Фамилия участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -129,7 +142,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text"
+                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text" @focus="focusInput" @blur="blurInput"
                          v-maska data-maska="+7 (###) ###-##-##"
                          placeholder="Телефон участника*"
                          :rules="validateEmpty"></Field>
@@ -195,10 +208,6 @@ const goToCheckList = () => {
 
 .members-add-place__title svg {
   margin-right: 8px;
-}
-.members-items {
-  max-height: 32vh;
-  overflow: auto;
 }
 
 .members-items-item {
