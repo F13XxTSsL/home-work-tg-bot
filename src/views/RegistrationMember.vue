@@ -144,28 +144,19 @@ const goToCheckList = () => {
             </div>
           </div>
         </transition>
-        <div class="actions">
-          <button @click="addMember" type="button" class="button button__gray"
-                  :class="{'button__light-green': dataForm.company_name }">Добавить участника
+        <button @click="addMember" type="button" class="button button__gray"
+                :class="{'button__light-green': dataForm.company_name }">Добавить участника
+        </button>
+        <transition name="fade" mode="out-in">
+          <button ref="buttonNext" v-show="dataForm.members.length > 0" type="button" class="button button__green" @click="goToCheckList">Далее
           </button>
-          <transition name="fade" mode="out-in">
-            <button ref="buttonNext" v-show="dataForm.members.length > 0" type="button" class="button button__green" @click="goToCheckList">Далее
-            </button>
-          </transition>
-        </div>
+        </transition>
       </div>
     </Form>
   </div>
 </template>
 
 <style scoped>
-
-.actions {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 20px;
-}
 
 .text {
   margin-bottom: 32px;
@@ -206,7 +197,8 @@ const goToCheckList = () => {
   margin-right: 8px;
 }
 .members-items {
-  height: 100%;
+  max-height: 46vh;
+  overflow: auto;
 }
 
 .members-items-item {
