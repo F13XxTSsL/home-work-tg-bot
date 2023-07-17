@@ -9,10 +9,10 @@ import ListMembers from "./views/ListMembers.vue";
 export const tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.ThemeParams.ThemeParams({
+tg.ThemeParams["ThemeParams"] = {
     bg_color: '#fff',
     secondary_bg_color: '#fff',
-})
+}
 
 
 const router = createRouter({
