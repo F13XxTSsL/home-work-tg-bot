@@ -9,7 +9,11 @@ import ListMembers from "./views/ListMembers.vue";
 export const tg = window.Telegram.WebApp;
 
 tg.expand();
-tg.colorScheme('light')
+const  setThemeClass = () => {
+    document.documentElement.className = Telegram.WebApp.colorScheme;
+}
+tg.onEvent('themeChanged', setThemeClass);
+setThemeClass();
 
 
 
