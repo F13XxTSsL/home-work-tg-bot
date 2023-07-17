@@ -58,13 +58,6 @@ const addMember = () => {
 
 }
 
-const focusInput = (event) => {
-  event.target.scrollIntoView({
-    block: 'center', // к ближайшей границе экрана
-    behavior: 'smooth', // и плавно
-  });
-}
-
 const deleteMembers = (id) => {
   dataForm.members = dataForm.members.filter(item => item.id !== id)
 }
@@ -88,7 +81,7 @@ const goToCheckList = () => {
   <div class="container">
     <h1>Регистрация участников</h1>
     <p class="text">Введите название компании для регистрации всех участников. После заполнения всех приглашенных, нажмите кнопку «Далее».</p>
-    <Form v-slot="{ errors }" ref="refForm" :class="{'mb-40': dataForm.members.length > 1}">
+    <Form v-slot="{ errors }" ref="refForm">
       <div class="form-item">
         <div class="form-item__title">Укажите вашу компанию</div>
         <Field as="input" v-model="dataForm.company_name" class="input" name="company_name" type="text"
@@ -117,7 +110,7 @@ const goToCheckList = () => {
                   </div>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text" @focus="focusInput"
+                  <Field v-model="member.first_name" class="input" :name="'first_name_' + idx" type="text"
                          placeholder="Имя участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -128,7 +121,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text" @focus="focusInput"
+                  <Field v-model="member.last_name" class="input" :name="'last_name_' +idx" type="text"
                          placeholder="Фамилия участника*"
                          :rules="validateEmpty"></Field>
                   <transition name="fade" mode="out-in">
@@ -139,7 +132,7 @@ const goToCheckList = () => {
                   </transition>
                 </div>
                 <div class="form-item">
-                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text" @focus="focusInput"
+                  <Field v-model="member.phone" class="input" :name="'phone_' + idx" type="text"
                          v-maska data-maska="+7 (###) ###-##-##"
                          placeholder="Телефон участника*"
                          :rules="validateEmpty"></Field>
@@ -168,9 +161,6 @@ const goToCheckList = () => {
 
 <style scoped>
 
-form.mb-40 {
-  margin-bottom: 80px;
-}
 .text {
   margin-bottom: 32px;
 }
