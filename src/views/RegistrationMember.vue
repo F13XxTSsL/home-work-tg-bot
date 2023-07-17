@@ -16,8 +16,6 @@ const dataForm = reactive({
 })
 
 
-
-
 if (sessionStorage.getItem('company')) {
   dataForm.company_name = JSON.parse(sessionStorage.getItem('company'))
 }
@@ -66,8 +64,15 @@ watch(dataForm, (item) => {
 
 })
 
-const focusInput = () => {
+const focusInput = (event) => {
   memberItems.value.style.marginBottom = 245 + 'px'
+
+  setTimeout(() => {
+    event.target.scrollIntoView({
+      block: 'center', // к ближайшей границе экрана
+      behavior: 'smooth', // и плавно
+    });
+  })
 }
 
 const blurInput = () => {
