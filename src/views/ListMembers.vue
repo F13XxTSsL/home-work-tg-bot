@@ -51,6 +51,7 @@ const sendData = async () => {
 
       tg.sendData("Invitees was submitted");
       tg.close();
+      tg.sendMessage('TEST')
 
   }, 3000)
 
