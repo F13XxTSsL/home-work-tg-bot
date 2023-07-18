@@ -7,7 +7,7 @@ import {tg} from "../main.js";
 sessionStorage.removeItem('company')
 sessionStorage.removeItem('members')
 
-tg.sendMessage('TEST')
+tg.sendMessage('TEST TEST')
 
 const clickNext = async () => {
   await fetch(`/api/v1/event_bot/subscriber/${tg.initDataUnsafe.user.id}`, {
